@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Teleneo", monospace;
+  src: url(../assets/fonts/teleneo/Tele-Neo-Office.ttf) format("truetype");
+}
+
+body {
+  font-family: "Teleneo", sans-serif;
+}
+
+/* React components breakdown for the navbar
+ *
+ * Mobile
+ * ----------------
+ * - Logo
+ * - Search component
+ * - Hamburger
+ * - Divider
+ *
+ * ++Desktop
+ * ----------------
+ * - Title
+ * - Profile/Account
+ * - Signout
+ *
+ */
