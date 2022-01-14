@@ -10,8 +10,9 @@ const theme: ITheme = {
   gray: {
     default: "#262626",
     medium: "#757575",
-    VeryLight: "#F6F6F6",
     light: "#A4A4A4",
+    veryLight: "#F6F6F6",
+    white: "#FFFFFF",
   },
 };
 

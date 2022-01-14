@@ -10,24 +10,36 @@ import { IContextValues } from "./types/context";
 const App: React.FC = () => {
   const context = useGlobalContext();
 
+  const handleSideBar = () => {
+    if (context.isMobile) {
+      if (context.open) return <Sidebar />;
+    } else {
+      return <Sidebar />;
+    }
+  };
+
   return (
     <Main {...context}>
       <Navbar />
-      {context.open && <Sidebar />}
+      {handleSideBar()}
       <Home />
     </Main>
   );
 };
 
 const Main = styled.div`
-  color: ${(props: IContextValues) => props.theme["gray"].default};
+  color: ${({ theme }: IContextValues) => theme && theme["gray"].default};
+
   &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background-color: ${(props: IContextValues) =>
-      props?.open && "rgba(0, 0, 0, 0.7)"};
+    @media (max-width: ${({ screenSizes }: IContextValues) =>
+        `${screenSizes["mobile"].maxWidth}rem`}) {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-color: ${({ open, theme }: IContextValues) =>
+        open && theme && theme["gray"].default};
+    }
   }
 `;
 

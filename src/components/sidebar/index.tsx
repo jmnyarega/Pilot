@@ -6,12 +6,13 @@ import SidebarLink from "./Link";
 
 import { useGlobalContext } from "../../context";
 import { dashboardLinks, userLinks } from "./links";
+import { IContextValues } from "../../types/context";
 
 const Sidebar = () => {
-  const { active, setActive, theme } = useGlobalContext();
+  const { active, setActive, theme, screenSizes } = useGlobalContext();
 
   return (
-    <SidebarStyled>
+    <SidebarStyled theme={theme} screenSizes={screenSizes}>
       <TopBarStyled>
         <Logo
           imageSize={{
@@ -36,7 +37,7 @@ const Sidebar = () => {
         thickness="0.5px"
         size="calc(100% - 3rem)"
         color="gray"
-        theme={theme}
+        theme={theme && theme}
         styles={{
           margin: "0 auto",
         }}
@@ -67,17 +68,25 @@ const TopBarStyled = styled.div`
   display: flex;
   column-gap: 1rem;
   min-height: 4.6875rem;
-  margin-inline: 1rem;
+  margin-inline: 1.5rem;
 `;
 
 const SidebarStyled = styled.div`
   position: absolute;
-  background-color: #fff;
-  right: 5rem;
+  background-color: ${({ theme }: IContextValues) =>
+    theme && theme["gray"].white};
   left: 0;
   top: 0;
   bottom: 0;
-  border-right: 1px solid #dcdcdc;
+  right: 5rem;
+  border-right: ${({ theme }: IContextValues) =>
+    `1px solid ${theme && theme["gray"].light}`};
+
+  ${({ screenSizes }: IContextValues) => `
+    @media (min-width: ${screenSizes && screenSizes["desktop"].minWidth}rem) {
+        right: calc(100% - 16.375rem);
+    }
+ `};
 `;
 
 export default Sidebar;

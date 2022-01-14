@@ -25,11 +25,11 @@ const SidebarLink: React.FC<ISidebarLinks> = (props) => {
 
 const LinkContainerStyled = styled.li`
   background-color: ${({ active, theme }: ISidebarLinks) =>
-    active && theme && theme["gray"].light};
+    active && theme && theme["gray"].veryLight};
   font-weight: ${({ active }: ISidebarLinks) => active && "bold"};
   &:hover {
     background-color: ${({ active, theme }: ISidebarLinks) =>
-      !active && theme && theme["gray"].light};
+      !active && theme && theme["gray"].veryLight};
   }
 `;
 
