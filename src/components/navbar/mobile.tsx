@@ -19,7 +19,7 @@ const MobileNav: React.FC = () => {
       />
       <Divider
         color="gray"
-        theme={context.theme}
+        theme={context?.theme || {}}
         lineType="vertical"
         size="4.6875rem"
         thickness="0.005rem"

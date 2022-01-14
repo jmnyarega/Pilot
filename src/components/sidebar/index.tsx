@@ -12,6 +12,7 @@ const Sidebar = () => {
   const { active, setActive, theme, screenSizes } = useGlobalContext();
 
   return (
+    // @ts-ignore - styled components wont let me add screenSizes 😥
     <SidebarStyled theme={theme} screenSizes={screenSizes}>
       <TopBarStyled>
         <Logo
@@ -37,7 +38,7 @@ const Sidebar = () => {
         thickness="0.5px"
         size="calc(100% - 3rem)"
         color="gray"
-        theme={theme && theme}
+        theme={theme || {}}
         styles={{
           margin: "0 auto",
         }}
@@ -73,17 +74,16 @@ const TopBarStyled = styled.div`
 
 const SidebarStyled = styled.div`
   position: absolute;
-  background-color: ${({ theme }: IContextValues) =>
-    theme && theme["gray"].white};
+  background-color: ${({ theme }: IContextValues) => theme?.gray?.white};
   left: 0;
   top: 0;
   bottom: 0;
   right: 5rem;
   border-right: ${({ theme }: IContextValues) =>
-    `1px solid ${theme && theme["gray"].light}`};
+    `1px solid ${theme?.gray?.light}`};
 
   ${({ screenSizes }: IContextValues) => `
-    @media (min-width: ${screenSizes && screenSizes["desktop"].minWidth}rem) {
+    @media (min-width: ${screenSizes?.desktop?.minWidth}rem) {
         right: calc(100% - 16.375rem);
     }
  `};

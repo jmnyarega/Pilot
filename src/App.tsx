@@ -28,17 +28,17 @@ const App: React.FC = () => {
 };
 
 const Main = styled.div`
-  color: ${({ theme }: IContextValues) => theme && theme["gray"].default};
+  color: ${({ theme }: IContextValues) => theme?.gray?.default};
 
   &::after {
     @media (max-width: ${({ screenSizes }: IContextValues) =>
-        `${screenSizes["mobile"].maxWidth}rem`}) {
+        `${screenSizes?.mobile?.maxWidth}rem`}) {
       content: "";
       position: absolute;
       inset: 0;
       z-index: -1;
       background-color: ${({ open, theme }: IContextValues) =>
-        open && theme && theme["gray"].default};
+        open && theme?.gray.default};
     }
   }
 `;

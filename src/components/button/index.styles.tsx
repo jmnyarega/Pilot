@@ -8,7 +8,7 @@ interface IProps {
 }
 
 const Button = styled.button`
-  background-color: ${({ color, theme }: IProps) => theme[color].default};
+  background-color: ${({ color, theme }: IProps) => theme[color]?.default};
   color: white;
   padding: 5px 15px;
   border-radius: 5px;
@@ -19,7 +19,7 @@ const Button = styled.button`
   box-shadow: 0px 2px 2px lightgray;
   transition: ease background-color 250ms;
   &:hover {
-    background-color: ${({ color, theme }: IProps) => theme[color].hover};
+    background-color: ${({ color, theme }: IProps) => theme[color]?.hover};
   }
   &:disabled {
     cursor: default;

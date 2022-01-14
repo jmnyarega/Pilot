@@ -5,16 +5,16 @@ import MobileNav from "./mobile";
 import DesktopNav from "./desktop";
 
 import { useGlobalContext } from "../../context";
-import { ITheme } from "../../types/context";
+import { IContextValues } from "../../types/context";
 
 const Navbar = () => {
-  const context = useGlobalContext();
+  const { theme, isMobile } = useGlobalContext();
 
   return (
-    <NavbarStyled theme={context.theme}>
+    <NavbarStyled theme={theme || {}}>
       <Logo imageSize={{ height: 24, width: 56 }} />
-      {!context.isMobile && <TitleHeading>Dashboard</TitleHeading>}
-      {context.isMobile ? <MobileNav /> : <DesktopNav />}
+      {!isMobile && <TitleHeading>Dashboard</TitleHeading>}
+      {isMobile ? <MobileNav /> : <DesktopNav />}
     </NavbarStyled>
   );
 };
@@ -24,8 +24,8 @@ const NavbarStyled = styled.div`
   column-gap: 1rem;
   min-height: 4.6875rem;
   padding-inline: 1rem;
-  box-shadow: ${({ theme }: ITheme) =>
-    `0px 0.5px 0px ${theme && theme["gray"].light} `};
+  box-shadow: ${({ theme }: IContextValues) =>
+    `0px 0.5px 0px ${theme?.gray?.light} `};
 `;
 
 const TitleHeading = styled.h2`
