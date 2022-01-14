@@ -8,7 +8,6 @@ export interface IContextValues {
 
 export interface ITheme {
   [color: string]: {
-    default: string;
-    hover: string;
+    [intensity: string]: string;
   };
 }

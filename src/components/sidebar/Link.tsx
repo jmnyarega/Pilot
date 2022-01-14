@@ -5,7 +5,7 @@ import { useGlobalContext } from "../../context";
 import { ISidebarLinks } from "../../types";
 
 const SidebarLink: React.FC<ISidebarLinks> = (props) => {
-  const { toggleOpen } = useGlobalContext();
+  const { toggleOpen, theme } = useGlobalContext();
 
   const handleClick = (e: any) => {
     e.preventDefault();
@@ -14,7 +14,7 @@ const SidebarLink: React.FC<ISidebarLinks> = (props) => {
   };
 
   return (
-    <LinkContainerStyled {...props}>
+    <LinkContainerStyled {...props} theme={theme}>
       <LinkStyled href="/" onClick={handleClick}>
         <img src={props.icon} alt="" />
         {props.value}
@@ -24,10 +24,12 @@ const SidebarLink: React.FC<ISidebarLinks> = (props) => {
 };
 
 const LinkContainerStyled = styled.li`
-  background-color: ${({ active }: ISidebarLinks) => active && "#f6f6f6"};
+  background-color: ${({ active, theme }: ISidebarLinks) =>
+    active && theme && theme["gray"].light};
   font-weight: ${({ active }: ISidebarLinks) => active && "bold"};
   &:hover {
-    background-color: ${({ active }: ISidebarLinks) => !active && "#f6f6f6"};
+    background-color: ${({ active, theme }: ISidebarLinks) =>
+      !active && theme && theme["gray"].light};
   }
 `;
 

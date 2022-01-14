@@ -22,7 +22,7 @@ const Navbar = () => {
         styles={{ marginLeft: "auto" }}
       />
       <Divider
-        color="blue"
+        color="gray"
         theme={context.theme}
         lineType="vertical"
         size="4.6875rem"

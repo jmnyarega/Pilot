@@ -17,7 +17,7 @@ const Divider: React.FC<IProps> = (props) => (
 );
 
 const DividerStyled = styled.div`
-  background-color: ${({ color, theme }: IProps) => theme[color].default};
+  background-color: ${({ color, theme }: IProps) => theme[color].light};
   width: ${({ thickness, lineType, size }: IProps) =>
     lineType === "vertical" ? thickness : size};
   height: ${({ thickness, lineType, size }: IProps) =>

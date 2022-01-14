@@ -20,6 +20,7 @@ const App: React.FC = () => {
 };
 
 const Main = styled.div`
+  color: ${(props: IContextValues) => props.theme["gray"].default};
   &::after {
     content: "";
     position: absolute;

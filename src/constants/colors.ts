@@ -1,13 +1,17 @@
 import { ITheme } from "../types/context";
 
 const theme: ITheme = {
-  blue: {
-    default: "#3f51b5",
-    hover: "#283593",
+  red: {
+    default: "#E20074",
   },
-  pink: {
-    default: "#e91e63",
-    hover: "#ad1457",
+  yellow: {
+    default: "#FECB00",
+  },
+  gray: {
+    default: "#262626",
+    medium: "#757575",
+    VeryLight: "#F6F6F6",
+    light: "#A4A4A4",
   },
 };
 

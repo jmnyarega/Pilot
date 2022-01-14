@@ -35,7 +35,7 @@ const Sidebar = () => {
         lineType="horizontal"
         thickness="0.5px"
         size="calc(100% - 3rem)"
-        color="blue"
+        color="gray"
         theme={theme}
         styles={{
           margin: "0 auto",
