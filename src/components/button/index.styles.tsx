@@ -4,13 +4,24 @@ import { ITheme } from "../../types/context";
 
 interface IProps {
   color: string;
-  theme: ITheme;
+  theme?: ITheme;
+  icon?: string;
+  value: string;
 }
 
-const Button = styled.button`
-  background-color: ${({ color, theme }: IProps) => theme[color]?.default};
+const Button: React.FC<IProps> = (props) => (
+  <ButtonStyled {...props}>
+    <img src={props?.icon} alt="" />
+    {props.value}
+  </ButtonStyled>
+);
+
+const ButtonStyled = styled.button`
+  background-color: ${({ color, theme }: IProps) =>
+    theme && theme[color]?.default};
   color: white;
   padding: 5px 15px;
+  border: 1px solid transparent;
   border-radius: 5px;
   outline: 0;
   text-transform: uppercase;
@@ -19,7 +30,8 @@ const Button = styled.button`
   box-shadow: 0px 2px 2px lightgray;
   transition: ease background-color 250ms;
   &:hover {
-    background-color: ${({ color, theme }: IProps) => theme[color]?.hover};
+    background-color: ${({ color, theme }: IProps) =>
+      theme && theme[color]?.hover};
   }
   &:disabled {
     cursor: default;

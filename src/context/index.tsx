@@ -26,10 +26,16 @@ const AppProvider: React.FC<IReactChildrenProps> = ({ children }) => {
   };
 
   const handleWidthChange = () => {
-    setIsMobile(window.innerWidth < +screenSizes["desktop"].minWidth * 16);
-
-    if (!isMobile) setOpen(false);
+    setIsMobile(window.innerWidth < +(screenSizes?.mobile?.maxWidth || 1) * 16);
   };
+
+  useEffect(() => {
+    !isMobile && setOpen(false);
+  }, [isMobile]);
+
+  useEffect(() => {
+    handleWidthChange();
+  }, []);
 
   useEffect(() => {
     window.addEventListener("resize", handleWidthChange, false);

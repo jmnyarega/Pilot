@@ -9,7 +9,10 @@ import { dashboardLinks, userLinks } from "./links";
 import { IContextValues } from "../../types/context";
 
 const Sidebar = () => {
-  const { active, setActive, theme, screenSizes } = useGlobalContext();
+  const { isMobile, active, setActive, theme, screenSizes, open } =
+    useGlobalContext();
+
+  if (isMobile && !open) return null;
 
   return (
     // @ts-ignore - styled components wont let me add screenSizes 😥
@@ -17,7 +20,7 @@ const Sidebar = () => {
       <TopBarStyled>
         <Logo
           imageSize={{
-            height: 26,
+            height: 24,
             width: 56,
           }}
         />
@@ -35,7 +38,7 @@ const Sidebar = () => {
       </SidebarLinksStyled>
       <Divider
         lineType="horizontal"
-        thickness="0.5px"
+        thickness="0.2px"
         size="calc(100% - 3rem)"
         color="gray"
         theme={theme || {}}
@@ -58,18 +61,21 @@ const Sidebar = () => {
   );
 };
 
+const barHeight = 4.6875;
+const spacer = 1;
+
 const SidebarLinksStyled = styled.ul`
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
+  row-gap: ${spacer}rem;
   list-style: none;
 `;
 
 const TopBarStyled = styled.div`
   display: flex;
-  column-gap: 1rem;
-  min-height: 4.6875rem;
-  margin-inline: 1.5rem;
+  column-gap: ${spacer}rem;
+  min-height: ${barHeight}rem;
+  margin-inline: ${spacer + 0.5}rem;
 `;
 
 const SidebarStyled = styled.div`
@@ -79,12 +85,16 @@ const SidebarStyled = styled.div`
   top: 0;
   bottom: 0;
   right: 5rem;
-  border-right: ${({ theme }: IContextValues) =>
-    `1px solid ${theme?.gray?.light}`};
+  box-shadow: ${({ theme }: IContextValues) =>
+    `0.5px 0px 0px ${theme?.gray?.light} `};
 
   ${({ screenSizes }: IContextValues) => `
-    @media (min-width: ${screenSizes?.desktop?.minWidth}rem) {
+    @media (min-width: ${screenSizes?.mobile?.maxWidth}rem) {
         right: calc(100% - 16.375rem);
+        margin-top: ${-barHeight}rem;
+        position: initial;
+        width: 20rem;
+        min-height: 100vh;
     }
  `};
 `;

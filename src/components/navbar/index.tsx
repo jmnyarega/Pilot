@@ -21,16 +21,18 @@ const Navbar = () => {
 
 const NavbarStyled = styled.div`
   display: flex;
+  justify-content: center;
   column-gap: 1rem;
   min-height: 4.6875rem;
-  padding-inline: 1rem;
+  padding-inline: 1.5rem;
   box-shadow: ${({ theme }: IContextValues) =>
     `0px 0.5px 0px ${theme?.gray?.light} `};
 `;
 
 const TitleHeading = styled.h2`
-  margin-left: 12.5rem;
   align-self: center;
+  width: 23rem;
+  text-align: right;
 `;
 
 export default Navbar;
