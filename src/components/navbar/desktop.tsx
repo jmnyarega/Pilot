@@ -2,12 +2,12 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import Search from "./search";
+import Dropdown from "../dropdown";
 
 import SearchUrl from "../../assets/images/search-desktop.svg";
 import Caret from "../../assets/images/caret.svg";
 import User from "../../assets/images/user.svg";
 import SignOut from "../../assets/images/signout.svg";
-import Dropdown from "../dropdown";
 
 const DesktopNav: React.FC = () => {
   const [userMenuOPen, setUserMenuOPen] = useState(false);

@@ -7,19 +7,8 @@ body {
   font-family: "Teleneo", sans-serif;
 }
 
-/* React components breakdown for the navbar
- *
- * Mobile
- * ----------------
- * - Logo
- * - Search component
- * - Hamburger
- * - Divider
- *
- * ++Desktop
- * ----------------
- * - Title
- * - Profile/Account
- * - Signout
- *
- */
+a:hover,
+a:focus {
+  outline: none;
+  opacity: 0.6;
+}

@@ -30,11 +30,18 @@ const ButtonStyled = styled.button`
   text-transform: uppercase;
   cursor: pointer;
   box-shadow: 0px 2px 2px lightgray;
-  transition: ease background-color 250ms;
+  transition: ease all 250ms;
+
   &:hover {
     background-color: ${({ color, theme }: IProps) =>
       theme && theme[color]?.hover};
   }
+
+  &:focus {
+    outline: ${({ theme }) => `1px solid ${theme.gray.white}`};
+    outline-offset: -3px;
+  }
+
   &:disabled {
     cursor: default;
     opacity: 0.7;

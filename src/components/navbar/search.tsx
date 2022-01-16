@@ -26,6 +26,12 @@ const SearchStyled = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    opacity: 0.7;
+  }
 `;
 
 export default Search;

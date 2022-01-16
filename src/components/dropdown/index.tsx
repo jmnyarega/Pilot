@@ -38,10 +38,6 @@ const ListElementItemStyled = styled.li`
   a {
     text-decoration: none;
     color: inherit;
-
-    &:hover {
-      opacity: 0.6;
-    }
   }
 `;
 

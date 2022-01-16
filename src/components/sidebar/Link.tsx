@@ -27,10 +27,6 @@ const LinkContainerStyled = styled.li`
   background-color: ${({ active, theme }: ISidebarLinks) =>
     active && theme?.gray?.veryLight};
   font-weight: ${({ active }: ISidebarLinks) => active && "bold"};
-  &:hover {
-    background-color: ${({ active, theme }: ISidebarLinks) =>
-      !active && theme?.gray?.veryLight};
-  }
 `;
 
 const LinkStyled = styled.a`

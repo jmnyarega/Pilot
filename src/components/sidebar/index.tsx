@@ -1,7 +1,7 @@
 import styled from "styled-components";
+
 import Divider from "../divider";
 import Logo from "../logo";
-
 import SidebarLink from "./Link";
 
 import { useGlobalContext } from "../../context";
@@ -9,14 +9,13 @@ import { dashboardLinks, userLinks } from "./links";
 import { IContextValues } from "../../types/context";
 
 const Sidebar = () => {
-  const { isMobile, active, setActive, theme, screenSizes, open } =
-    useGlobalContext();
+  const context = useGlobalContext();
 
-  if (isMobile && !open) return null;
+  if (context.isMobile && !context.open) return null;
 
   return (
     // @ts-ignore - styled components wont let me add screenSizes 😥
-    <SidebarStyled theme={theme} screenSizes={screenSizes}>
+    <SidebarStyled theme={context.theme} screenSizes={context.screenSizes}>
       <TopBarStyled>
         <Logo
           imageSize={{
@@ -31,8 +30,8 @@ const Sidebar = () => {
             key={value}
             value={value}
             icon={icon}
-            active={value === active}
-            onClick={() => setActive && setActive(value)}
+            active={value === context.active}
+            onClick={() => context.setActive && context.setActive(value)}
           />
         ))}
       </SidebarLinksStyled>
@@ -41,7 +40,7 @@ const Sidebar = () => {
         thickness="0.2px"
         size="calc(100% - 3rem)"
         color="gray"
-        theme={theme || {}}
+        theme={context.theme}
         styles={{
           margin: "0 auto",
         }}
@@ -52,8 +51,8 @@ const Sidebar = () => {
             key={value}
             value={value}
             icon={icon}
-            active={value === active}
-            onClick={() => setActive && setActive(value)}
+            active={value === context.active}
+            onClick={() => context.setActive && context.setActive(value)}
           />
         ))}
       </SidebarLinksStyled>

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import { IImages } from "../../types";
-
 import LogoUrl from "../../assets/images/logo.svg";
+
+import { IImages } from "../../types";
 
 interface IProps extends IImages {
   styles?: {
@@ -10,16 +10,18 @@ interface IProps extends IImages {
   };
 }
 
-const Logo: React.FC<IProps> = ({ imageSize, styles }) => (
-  <LogoStyled href="/" style={styles}>
-    <img
-      src={LogoUrl}
-      alt="Logo"
-      height={imageSize.height}
-      width={imageSize.width}
-    />
-  </LogoStyled>
-);
+const Logo: React.FC<IProps> = ({ imageSize, styles }) => {
+  return (
+    <LogoStyled href="/" style={styles}>
+      <img
+        src={LogoUrl}
+        alt="Logo"
+        height={imageSize.height}
+        width={imageSize.width}
+      />
+    </LogoStyled>
+  );
+};
 
 const LogoStyled = styled.a`
   display: flex;
