@@ -2,16 +2,22 @@ import styled from "styled-components";
 
 import CalloutCard from "../components/card/calloutCard";
 import StatusWarning from "../assets/images/status-warning.svg";
+import SectionTitle from "../components/section-title";
 
-import { IContextValues } from "../types/context";
 import { useGlobalContext } from "../context";
 
-const CardTasks = () => {
+interface IProps {
+  style: {
+    [property: string]: string;
+  };
+}
+
+const CardTasks: React.FC<IProps> = (props) => {
   const context = useGlobalContext();
 
   return (
-    <>
-      <p>Openstaande taken</p>
+    <section {...props}>
+      <SectionTitle>Openstaande taken</SectionTitle>
       <CardTasksStyled {...context}>
         <CalloutCard
           imageUrl={StatusWarning}
@@ -32,27 +38,17 @@ const CardTasks = () => {
           }}
         />
       </CardTasksStyled>
-    </>
+    </section>
   );
 };
 
 const CardTasksStyled = styled.ul`
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
   gap: 0.75rem;
-
-  @media (min-width: ${({ screenSizes }: IContextValues) =>
-      `${screenSizes?.tablet?.minWidth}rem`}) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media (min-width: ${({ screenSizes }: IContextValues) =>
-      `${screenSizes?.desktop?.minWidth}rem`}) {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+  list-style: none;
+  font-size: 0.8rem;
+  gap: 0.75rem;
 `;
 
 export default CardTasks;

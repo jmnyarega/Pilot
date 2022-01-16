@@ -7,11 +7,15 @@ interface IProps {
   theme?: ITheme;
   icon?: string;
   value: string;
+  width?: string;
+  style: {
+    [property: string]: string;
+  };
 }
 
 const Button: React.FC<IProps> = (props) => (
   <ButtonStyled {...props}>
-    <img src={props?.icon} alt="" />
+    <ButtonIcon src={props?.icon} alt="" />
     {props.value}
   </ButtonStyled>
 );
@@ -23,9 +27,7 @@ const ButtonStyled = styled.button`
   padding: 5px 15px;
   border: 1px solid transparent;
   border-radius: 5px;
-  outline: 0;
   text-transform: uppercase;
-  margin: 10px 0px;
   cursor: pointer;
   box-shadow: 0px 2px 2px lightgray;
   transition: ease background-color 250ms;
@@ -37,6 +39,11 @@ const ButtonStyled = styled.button`
     cursor: default;
     opacity: 0.7;
   }
+`;
+
+const ButtonIcon = styled.img`
+  width: 1.5rem;
+  height: 1.5rem;
 `;
 
 export default Button;

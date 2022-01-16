@@ -31,7 +31,7 @@ const CardStyled = styled.li`
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
 
   @media (min-width: ${({ screenSizes }: IContextValues) =>
-      `${screenSizes?.tablet?.minWidth}rem`}) {
+      `${screenSizes?.mobile?.maxWidth}rem`}) {
     display: grid;
     grid-template-areas: "a b" "a c";
   }
@@ -53,6 +53,7 @@ const Avator = styled.img`
 const AvatorContainer = styled.div`
   grid-area: a;
   align-self: center;
+  display: none;
 
   @media (min-width: ${({ screenSizes }: IContextValues) =>
       `${screenSizes?.mobile?.maxWidth}rem`}) {

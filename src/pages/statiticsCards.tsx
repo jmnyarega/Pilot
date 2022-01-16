@@ -5,16 +5,22 @@ import StatiticsCard from "../components/card/statiticsCard";
 import UserImageUrl from "../assets/images/users.svg";
 import IncomingCallImageUrl from "../assets/images/incoming-call.svg";
 import PhoneImageUrl from "../assets/images/telephone.svg";
+import SectionTitle from "../components/section-title";
 
-import { IContextValues } from "../types/context";
 import { useGlobalContext } from "../context";
 
-const StatiticsCards = () => {
+interface IProps {
+  style: {
+    [property: string]: string;
+  };
+}
+
+const StatiticsCards: React.FC<IProps> = (props) => {
   const context = useGlobalContext();
 
   return (
-    <>
-      <p>Jouw statistieken</p>
+    <section {...props}>
+      <SectionTitle>Jouw statistieken</SectionTitle>
       <CardContainerStyled {...context}>
         {[
           { value: "8", text: "actieve medewerkers", icon: UserImageUrl },
@@ -28,28 +34,15 @@ const StatiticsCards = () => {
           <StatiticsCard key={value} value={value} text={text} icon={icon} />
         ))}
       </CardContainerStyled>
-    </>
+    </section>
   );
 };
 
 const CardContainerStyled = styled.ul`
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
   gap: 0.75rem;
-
-  @media (min-width: ${({ screenSizes }: IContextValues) =>
-      `${screenSizes?.tablet?.minWidth}rem`}) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media (min-width: ${({ screenSizes }: IContextValues) =>
-      `${screenSizes?.desktop?.minWidth}rem`}) {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+  list-style: none;
 `;
 
 export default StatiticsCards;

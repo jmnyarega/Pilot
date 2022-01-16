@@ -25,13 +25,14 @@ const NavbarStyled = styled.div`
   column-gap: 1rem;
   min-height: 4.6875rem;
   padding-inline: 1.5rem;
+  background-color: ${({ theme }: IContextValues) => theme?.gray?.white};
   box-shadow: ${({ theme }: IContextValues) =>
-    `0px 0.5px 0px ${theme?.gray?.light} `};
+    `0px 1px 0px ${theme?.gray?.light} `};
 `;
 
 const TitleHeading = styled.h2`
   align-self: center;
-  width: 23rem;
+  width: 19rem;
   text-align: right;
 `;
 

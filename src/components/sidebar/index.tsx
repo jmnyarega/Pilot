@@ -86,14 +86,14 @@ const SidebarStyled = styled.div`
   bottom: 0;
   right: 5rem;
   box-shadow: ${({ theme }: IContextValues) =>
-    `0.5px 0px 0px ${theme?.gray?.light} `};
+    `1px 0px 0px ${theme?.gray?.light} `};
 
   ${({ screenSizes }: IContextValues) => `
     @media (min-width: ${screenSizes?.mobile?.maxWidth}rem) {
         right: calc(100% - 16.375rem);
         margin-top: ${-barHeight}rem;
         position: initial;
-        width: 20rem;
+        width: 15rem;
         min-height: 100vh;
     }
  `};

@@ -3,30 +3,42 @@ import styled from "styled-components";
 import CardTasks from "./tasks";
 import StatiticsCards from "./statiticsCards";
 
-import { IContextValues } from "../types/context";
-import { useGlobalContext } from "../context";
 import ButtonFilters from "./filters";
+import Container from "../components/container";
+
+import { useGlobalContext } from "../context";
 
 const Home: React.FC = () => {
   const context = useGlobalContext();
 
   return (
     <Container {...context}>
-      <h2>Dashboard</h2>
-      <CardTasks />
-      <StatiticsCards />
-      <ButtonFilters />
+      {context?.isMobile && <TitleHeading>Dashboard</TitleHeading>}
+
+      {context?.isMobile ? (
+        <CardTasks style={{ marginTop: "2.25rem" }} />
+      ) : (
+        <ButtonFilters style={{ marginBlock: "2.25rem" }} />
+      )}
+
+      {context?.isMobile ? (
+        <StatiticsCards style={{ marginTop: "2.25rem" }} />
+      ) : (
+        <CardTasks style={{ marginTop: "2.25rem" }} />
+      )}
+
+      {context?.isMobile ? (
+        <ButtonFilters style={{ marginBlock: "2.25rem" }} />
+      ) : (
+        <StatiticsCards style={{ marginBlock: "2.25rem" }} />
+      )}
     </Container>
   );
 };
 
-const Container = styled.div`
-  min-height: calc(100vh - 4.6875rem);
-  margin: 0 auto;
-  @media (min-width: ${({ screenSizes }: IContextValues) =>
-      `${screenSizes?.mobile?.maxWidth}rem`}) {
-    max-width: 64rem;
-  }
+const TitleHeading = styled.h2`
+  padding-top: 1.5rem;
+  font-size: 2.225rem;
 `;
 
 export default Home;

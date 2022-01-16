@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import Button from "../components/button/index.styles";
+import SectionTitle from "../components/section-title";
 
 import RefreshIcon from "../assets/images/refresh.svg";
 import UsersIcon from "../assets/images/users-white.svg";
@@ -9,12 +10,18 @@ import ClockIcon from "../assets/images/clock-white.svg";
 
 import { useGlobalContext } from "../context";
 
-const ButtonFilters = () => {
+interface IProps {
+  style: {
+    [property: string]: string;
+  };
+}
+
+const ButtonFilters: React.FC<IProps> = (props) => {
   const context = useGlobalContext();
 
   return (
-    <>
-      Snel beheren
+    <section {...props}>
+      <SectionTitle>Snel beheren</SectionTitle>
       <ButtonContainer>
         {[
           { value: "Mijn belgroepen", icon: RefreshIcon },
@@ -34,26 +41,28 @@ const ButtonFilters = () => {
             value={value}
             icon={icon}
             color="red"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "20rem",
+              columnGap: "0.5rem",
+            }}
           />
         ))}
       </ButtonContainer>
-    </>
+    </section>
   );
 };
 
 const ButtonContainer = styled.div`
   display: flex;
-  column-gap: 1.5rem;
   flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+  font-size: 0.8rem;
 `;
 
-const ButtonStyled = styled(Button)`
-  display: flex;
-  column-gap: 0.5rem;
-  justify-content: center;
-  align-items: center;
-
-  width: 20rem;
-`;
+const ButtonStyled = styled(Button)``;
 
 export default ButtonFilters;
