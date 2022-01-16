@@ -93,7 +93,7 @@ const SidebarStyled = styled.div`
         right: calc(100% - 16.375rem);
         margin-top: ${-barHeight}rem;
         position: initial;
-        width: 15rem;
+        width: 16rem;
         min-height: 100vh;
     }
  `};

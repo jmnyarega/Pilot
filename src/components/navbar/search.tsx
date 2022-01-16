@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// types
 import { IImages } from "../../types";
 
 interface IProps extends IImages {
@@ -8,7 +9,7 @@ interface IProps extends IImages {
   };
 }
 
-const Search: React.FC<IProps> = ({ imageUrl, imageSize, styles }) => {
+const Search: React.FC<IProps> = ({ imageUrl, imageSize, styles }: IProps) => {
   return (
     <SearchStyled style={styles}>
       <img

@@ -1,13 +1,22 @@
+import { useState } from "react";
+import styled from "styled-components";
+
 import Search from "./search";
 
 import SearchUrl from "../../assets/images/search-desktop.svg";
 import Caret from "../../assets/images/caret.svg";
 import User from "../../assets/images/user.svg";
 import SignOut from "../../assets/images/signout.svg";
-
-import styled from "styled-components";
+import Dropdown from "../dropdown";
 
 const DesktopNav: React.FC = () => {
+  const [userMenuOPen, setUserMenuOPen] = useState(false);
+
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    setUserMenuOPen(!userMenuOPen);
+  };
+
   return (
     <>
       <Search
@@ -15,10 +24,18 @@ const DesktopNav: React.FC = () => {
         imageSize={{ height: 24, width: 24 }}
         styles={{ marginLeft: "auto", color: "red" }}
       />
-      <AccountStyled href="/">
+      <AccountStyled href="/" onClick={handleClick}>
         <img src={User} alt="" />
         <span>Account</span>
         <img src={Caret} alt="" />
+        {userMenuOPen && (
+          <Dropdown
+            items={[
+              { value: "Account", to: "/" },
+              { value: "Account", to: "/" },
+            ]}
+          />
+        )}
       </AccountStyled>
       <SignOutStyled href="/">
         <img src={SignOut} alt="sign out" />
@@ -32,6 +49,8 @@ const AccountStyled = styled.a`
   align-items: center;
   column-gap: 0.5rem;
   margin-inline: 1rem;
+
+  position: relative;
 
   text-decoration: none;
   color: inherit;
