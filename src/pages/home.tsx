@@ -11,6 +11,8 @@ import { useGlobalContext } from "../context";
 const Home: React.FC = () => {
   const context = useGlobalContext();
 
+  console.log(context);
+
   return (
     <Container {...context}>
       {context?.isMobile && <TitleHeading>Dashboard</TitleHeading>}

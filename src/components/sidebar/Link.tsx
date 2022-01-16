@@ -5,12 +5,12 @@ import { useGlobalContext } from "../../context";
 import { ISidebarLinks } from "../../types";
 
 const SidebarLink: React.FC<ISidebarLinks> = (props) => {
-  const { toggleOpen, theme } = useGlobalContext();
+  const { isMobile, toggleOpen, theme } = useGlobalContext();
 
   const handleClick = (e: any) => {
     e.preventDefault();
     props.onClick();
-    toggleOpen && toggleOpen();
+    isMobile && toggleOpen && toggleOpen();
   };
 
   return (

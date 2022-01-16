@@ -47,7 +47,7 @@ const DesktopNav: React.FC = () => {
 const AccountStyled = styled.a`
   display: flex;
   align-items: center;
-  column-gap: 0.5rem;
+  column-gap: 1.5rem;
   margin-inline: 1rem;
 
   position: relative;
