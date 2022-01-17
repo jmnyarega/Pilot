@@ -1,14 +1,13 @@
 import styled from "styled-components";
+import Button from "../../components/button/index.styles";
+import SectionTitle from "../../components/section-title";
 
-import Button from "../components/button/index.styles";
-import SectionTitle from "../components/section-title";
+import RefreshIcon from "../../assets/images/refresh.svg";
+import UsersIcon from "../../assets/images/users-white.svg";
+import PhoneIcon from "../../assets/images/phone-white.svg";
+import ClockIcon from "../../assets/images/clock-white.svg";
 
-import RefreshIcon from "../assets/images/refresh.svg";
-import UsersIcon from "../assets/images/users-white.svg";
-import PhoneIcon from "../assets/images/phone-white.svg";
-import ClockIcon from "../assets/images/clock-white.svg";
-
-import { useGlobalContext } from "../context";
+import { useGlobalContext } from "../../context";
 
 interface IProps {
   style: {

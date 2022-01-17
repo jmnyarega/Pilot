@@ -2,16 +2,13 @@ import styled from "styled-components";
 
 import CardTasks from "./tasks";
 import StatiticsCards from "./statiticsCards";
-
 import ButtonFilters from "./filters";
-import Container from "../components/container";
+import Container from "../../components/container";
 
-import { useGlobalContext } from "../context";
+import { useGlobalContext } from "../../context";
 
 const Home: React.FC = () => {
   const context = useGlobalContext();
-
-  console.log(context);
 
   return (
     <Container {...context}>

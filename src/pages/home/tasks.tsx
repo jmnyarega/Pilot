@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-import CalloutCard from "../components/card/calloutCard";
-import StatusWarning from "../assets/images/status-warning.svg";
-import SectionTitle from "../components/section-title";
+import CalloutCard from "../../components/card/calloutCard";
+import StatusWarning from "../../assets/images/status-warning.svg";
+import SectionTitle from "../../components/section-title";
 
-import { useGlobalContext } from "../context";
+import { useGlobalContext } from "../../context";
 
 interface IProps {
   style: {

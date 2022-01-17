@@ -8,6 +8,7 @@ import SearchUrl from "../../assets/images/search-desktop.svg";
 import Caret from "../../assets/images/caret.svg";
 import User from "../../assets/images/user.svg";
 import SignOut from "../../assets/images/signout.svg";
+import Cog from "../../assets/images/cog.svg";
 
 const DesktopNav: React.FC = () => {
   const [userMenuOPen, setUserMenuOPen] = useState(false);
@@ -24,15 +25,15 @@ const DesktopNav: React.FC = () => {
         imageSize={{ height: 24, width: 24 }}
         styles={{ marginLeft: "auto", color: "red" }}
       />
-      <AccountStyled href="/" onClick={handleClick}>
+      <AccountStyled onClick={handleClick}>
         <img src={User} alt="" />
         <span>Account</span>
-        <img src={Caret} alt="" />
+        <img src={Caret} alt="" height={24} width={24} />
         {userMenuOPen && (
           <Dropdown
             items={[
-              { value: "Account", to: "/" },
-              { value: "Account", to: "/" },
+              { value: "My Account", to: "/", icon: User },
+              { value: "Settings", to: "/", icon: Cog },
             ]}
           />
         )}
@@ -44,11 +45,16 @@ const DesktopNav: React.FC = () => {
   );
 };
 
-const AccountStyled = styled.a`
+const AccountStyled = styled.button`
   display: flex;
   align-items: center;
   column-gap: 1.5rem;
   margin-inline: 1rem;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
 
   position: relative;
 

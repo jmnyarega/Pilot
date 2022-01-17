@@ -28,6 +28,7 @@ const MobileNav: React.FC = () => {
         toggleSideBar={context.toggleOpen}
         imageUrl={HamburgerUrl}
         imageSize={{ height: 24, width: 24 }}
+        aria-controls="sidebar"
       />
     </>
   );

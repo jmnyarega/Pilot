@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-import StatiticsCard from "../components/card/statiticsCard";
+import StatiticsCard from "../../components/card/statiticsCard";
+import SectionTitle from "../../components/section-title";
 
-import UserImageUrl from "../assets/images/users.svg";
-import IncomingCallImageUrl from "../assets/images/incoming-call.svg";
-import PhoneImageUrl from "../assets/images/telephone.svg";
-import SectionTitle from "../components/section-title";
+import UserImageUrl from "../../assets/images/users.svg";
+import IncomingCallImageUrl from "../../assets/images/incoming-call.svg";
+import PhoneImageUrl from "../../assets/images/telephone.svg";
 
-import { useGlobalContext } from "../context";
+import { useGlobalContext } from "../../context";
 
 interface IProps {
   style: {

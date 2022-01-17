@@ -14,8 +14,13 @@ const Sidebar = () => {
   if (context.isMobile && !context.open) return null;
 
   return (
-    // @ts-ignore - styled components wont let me add screenSizes 😥
-    <SidebarStyled theme={context.theme} screenSizes={context.screenSizes}>
+    <SidebarStyled
+      theme={context.theme}
+      // @ts-ignore - styled components wont let me add screenSizes 😥
+      screenSizes={context.screenSizes}
+      aria-expanded={context.open}
+      id="sidebar"
+    >
       <TopBarStyled>
         <Logo
           imageSize={{
@@ -25,15 +30,17 @@ const Sidebar = () => {
         />
       </TopBarStyled>
       <SidebarLinksStyled style={{ marginBottom: "1rem" }}>
-        {dashboardLinks.map(({ value, icon }) => (
-          <SidebarLink
-            key={value}
-            value={value}
-            icon={icon}
-            active={value === context.active}
-            onClick={() => context.setActive && context.setActive(value)}
-          />
-        ))}
+        <ul>
+          {dashboardLinks.map(({ value, icon }) => (
+            <SidebarLink
+              key={value}
+              value={value}
+              icon={icon}
+              active={value === context.active}
+              onClick={() => context.setActive && context.setActive(value)}
+            />
+          ))}
+        </ul>
       </SidebarLinksStyled>
       <Divider
         lineType="horizontal"
@@ -46,15 +53,17 @@ const Sidebar = () => {
         }}
       />
       <SidebarLinksStyled style={{ marginTop: "1rem" }}>
-        {userLinks.map(({ value, icon }) => (
-          <SidebarLink
-            key={value}
-            value={value}
-            icon={icon}
-            active={value === context.active}
-            onClick={() => context.setActive && context.setActive(value)}
-          />
-        ))}
+        <ul>
+          {userLinks.map(({ value, icon }) => (
+            <SidebarLink
+              key={value}
+              value={value}
+              icon={icon}
+              active={value === context.active}
+              onClick={() => context.setActive && context.setActive(value)}
+            />
+          ))}
+        </ul>
       </SidebarLinksStyled>
     </SidebarStyled>
   );
@@ -63,11 +72,13 @@ const Sidebar = () => {
 const barHeight = 4.6875;
 const spacer = 1;
 
-const SidebarLinksStyled = styled.ul`
-  display: flex;
-  flex-direction: column;
-  row-gap: ${spacer}rem;
-  list-style: none;
+const SidebarLinksStyled = styled.nav`
+  ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: ${spacer}rem;
+    list-style: none;
+  }
 `;
 
 const TopBarStyled = styled.div`
