@@ -32,7 +32,6 @@ const CalloutCard: React.FC<IProps> = ({ imageUrl, title, text, link }) => {
 const Card = styled.li`
   border: ${({ theme }: IContextValues) =>
     `2px solid ${theme?.yellow.default}`};
-  list-style: none;
   width: 19rem;
   padding: 1rem 1.5rem;
   border-radius: 4px;

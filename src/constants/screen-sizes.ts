@@ -3,7 +3,7 @@ import { IScreenSizes } from "../types/context.d";
 // number are rem units
 const screenSizes: IScreenSizes = {
   desktop: {
-    minWidth: 90,
+    minWidth: 80,
   },
   tablet: {
     minWidth: 60,

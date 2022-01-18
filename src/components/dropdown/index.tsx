@@ -13,7 +13,6 @@ interface IProps extends React.HTMLProps<HTMLUListElement> {
 
 const Dropdown = (props: IProps) => {
   const context = useGlobalContext();
-
   return (
     <ListElementStyled>
       {props.items.map((item) => (
@@ -27,12 +26,10 @@ const Dropdown = (props: IProps) => {
 };
 
 const ListElementStyled = styled.ul`
-  list-style: none;
   position: absolute;
   background-color: white;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
   top: 100%;
-  left: -1.5rem;
   right: 0;
   border-radius: 0.1rem;
 `;
@@ -40,7 +37,6 @@ const ListElementStyled = styled.ul`
 const ListElementItemStyled = styled.li`
   padding: 0.5rem 1rem;
   text-align: initial;
-
   display: flex;
   align-items: center;
   column-gap: 0.5rem;

@@ -32,11 +32,12 @@ const LinkContainerStyled = styled.li`
 const LinkStyled = styled.a`
   display: flex;
   align-items: center;
-  padding-block: 0.5rem;
   column-gap: 1rem;
-  text-decoration: none;
+  padding-block: 0.5rem;
   color: inherit;
+
   margin-inline: 1.5rem;
+  text-decoration: none;
 `;
 
 export default SidebarLink;

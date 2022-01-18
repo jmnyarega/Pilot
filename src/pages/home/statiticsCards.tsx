@@ -42,7 +42,6 @@ const CardContainerStyled = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  list-style: none;
 `;
 
 export default StatiticsCards;

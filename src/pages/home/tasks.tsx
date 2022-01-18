@@ -46,7 +46,6 @@ const CardTasksStyled = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  list-style: none;
   font-size: 0.8rem;
   gap: 0.75rem;
 `;

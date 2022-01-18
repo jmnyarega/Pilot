@@ -77,7 +77,6 @@ const SidebarLinksStyled = styled.nav`
     display: flex;
     flex-direction: column;
     row-gap: ${spacer}rem;
-    list-style: none;
   }
 `;
 

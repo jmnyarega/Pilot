@@ -44,7 +44,7 @@ const ButtonFilters: React.FC<IProps> = (props) => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              width: "20rem",
+              width: "19rem",
               columnGap: "0.5rem",
             }}
           />
@@ -58,7 +58,6 @@ const ButtonContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  list-style: none;
   font-size: 0.8rem;
 `;
 

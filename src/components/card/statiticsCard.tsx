@@ -27,12 +27,13 @@ const CardStyled = styled.li`
   background-color: ${({ theme }: IContextValues) => theme?.gray.white};
   padding: 1.625rem 1.5rem;
   border-radius: 4px;
-  width: 20rem;
+  width: 19rem;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
 
   @media (min-width: ${({ screenSizes }: IContextValues) =>
       `${screenSizes?.mobile?.maxWidth}rem`}) {
     display: grid;
+    grid-template-columns: repeat(0.5fr, 1fr);
     grid-template-areas: "a b" "a c";
   }
 `;
@@ -61,8 +62,8 @@ const AvatorContainer = styled.div`
     place-content: center;
 
     background: ${({ theme }: IContextValues) => theme?.gray.veryLight};
-    width: 80px;
-    height: 80px;
+    width: 5rem;
+    height: 5rem;
     border-radius: 50%;
   }
 `;
