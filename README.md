@@ -1,10 +1,9 @@
-# About the application
-<insert here...>
+# Pilot project
 
 ## System Prerequisites
 - [ ] Node LTS or higher
-- [ ] Recent versions of npm or yarn 
-      
+- [ ] Recent versions of npm or yarn
+
 ## Run the application locally
 - [ ] Clone the repository
 - [ ] Checkout to the root directory of the application
